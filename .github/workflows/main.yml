@@ -1,0 +1,19 @@
+name: DevOps Project CI/CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Code checkout
+      uses: actions/checkout@v3
+      
+    - name: Docker image build
+      run: docker build -t devops-project .
+      
+    - name: Success message
+      run: echo "Afaq ka DevOps Project successfully build hua!"
